@@ -9,11 +9,15 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.9/%{name}-%{version}.t
 # Source0-md5:	13558f8a328adad7fe95d52f4aa35132
 Patch0:         %{name}-locale-names.patch
 URL:		http://www.gnome.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	gnome-common >= 2.4.0
 BuildRequires:	gnome-vfs2-devel >= 2.5.8
 BuildRequires:	gtk+2-devel >= 2.3.2
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.30
 BuildRequires:	libgnomeprintui-devel >= 2.5.0
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.5.10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -32,7 +36,7 @@ dla edytora ¼róde³.
 Summary:	Header files for gtktextview
 Summary(pl):	Pliki nag³ówkowe dla gtktextview
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	gtk-doc-common
 Requires:	gtk+2-devel >= 2.3.0
 Requires:	libgnomeprint-devel >= 2.5.0
@@ -48,7 +52,7 @@ Pliki nag³ówkowe dla gtktextview.
 Summary:	Static gtksourceview library
 Summary(pl):	Statyczna biblioteka gtksourceview
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static gtksourceview library.
@@ -63,7 +67,10 @@ Statyczna biblioteka gtksourceview.
 mv po/{no,nb}.po
 
 %build
+%{__libtoolize}
+%{__aclocal} -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
+%{__automake}
 %configure \
 	--with-html-dir=%{_gtkdocdir} \
 	--enable-static \
