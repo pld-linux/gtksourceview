@@ -1,0 +1,12 @@
+diff -Nru gtksourceview-0.2.0.orig/gtksourceview/gtksourcestylescheme.c gtksourceview-0.2.0/gtksourceview/gtksourcestylescheme.c
+--- gtksourceview-0.2.0.orig/gtksourceview/gtksourcestylescheme.c	2003-05-02 19:27:52.000000000 +0200
++++ gtksourceview-0.2.0/gtksourceview/gtksourcestylescheme.c	2003-05-16 18:37:45.000000000 +0200
+@@ -336,7 +336,7 @@
+ 		default_style_scheme = g_object_new (GTK_TYPE_SOURCE_DEFAULT_STYLE_SCHEME,
+ 						     NULL);
+ 		g_object_add_weak_pointer (G_OBJECT (default_style_scheme),
+-					   (gpointer *) &default_style_scheme);
++					   (gpointer) &default_style_scheme);
+ 
+ 	}
+ 	else
