@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/0.2/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-gpointer.patch
 URL:		http://www.gnome.org/
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	libgnome-devel >= 2.2.0
@@ -37,6 +38,7 @@ Pliki nag³ówkowe dla gtktextview.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
