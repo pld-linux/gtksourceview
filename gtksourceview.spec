@@ -11,6 +11,7 @@ URL:		http://www.gnome.org/
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	libgnome-devel >= 2.2.0
 BuildRequires:	libxml2-devel >= 2.5.0
+BuildRequires:	libgnomeprint-devel >= 2.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
