@@ -1,12 +1,12 @@
 Summary:	Text widget that extends the standard GTK+ 2.x
 Summary(pl):	Widget tekstowy rozszerzaj±cy standardowy z GTK+ 2.x
 Name:		gtksourceview
-Version:	1.1.1
+Version:	1.1.91
 Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/1.1/%{name}-%{version}.tar.bz2
-# Source0-md5:	2e59c8748594181d4bf452320c8c3b5c
+# Source0-md5:	f9233e1b85b50583525f367dbf992e2e
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
@@ -14,8 +14,8 @@ BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-vfs2-devel >= 2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	intltool >= 0.30
-BuildRequires:	libgnomeprintui-devel >= 2.8.0
+BuildRequires:	intltool >= 0.31
+BuildRequires:	libgnomeprintui-devel >= 2.8.2
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -38,7 +38,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtk-doc-common
 Requires:	gtk+2-devel >= 2:2.4.4
-Requires:	libgnomeprint-devel >= 2.8.0
+Requires:	libgnomeprint-devel >= 2.8.2
 Requires:	libxml2-devel >= 2.6.13
 
 %description devel
