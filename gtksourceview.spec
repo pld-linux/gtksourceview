@@ -5,7 +5,7 @@ Version:	0.9.0
 Release:	1
 License:	GPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.8/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.9/%{name}-%{version}.tar.bz2
 # Source0-md5:	84f206a673647b6535ba93ae9636f38e
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-vfs2-devel >= 2.5.6
