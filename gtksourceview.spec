@@ -1,15 +1,16 @@
 Summary:	Text widget that extends the standard GTK+ 2.x
 Summary(pl):	Widget tekstowy rozszerzaj±cy standardowy z GTK+ 2.x
 Name:		gtksourceview
-Version:	0.9.0
+Version:	0.9.1
 Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	84f206a673647b6535ba93ae9636f38e
+# Source0-md5:	13558f8a328adad7fe95d52f4aa35132
+Patch0:         %{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	gnome-vfs2-devel >= 2.5.6
-BuildRequires:	gtk+2-devel >= 2.3.0
+BuildRequires:	gnome-vfs2-devel >= 2.5.8
+BuildRequires:	gtk+2-devel >= 2.3.2
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.30
 BuildRequires:	libgnomeprintui-devel >= 2.5.0
@@ -57,8 +58,12 @@ Statyczna biblioteka gtksourceview.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
+%{__autoconf}
 %configure \
 	--with-html-dir=%{_gtkdocdir} \
 	--enable-static \
