@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/0.2/%{name}-%{version}.tar.bz2
+# Source0-md5:	f6861adfefea4b834ece74b9595f20a1
 URL:		http://www.gnome.org/
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	libgnome-devel >= 2.2.0
