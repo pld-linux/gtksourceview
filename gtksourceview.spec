@@ -1,17 +1,23 @@
 Summary:	Text widget that extends the standard GTK+ 2.x
 Summary(pl):	Widget tekstowy rozszerzaj±cy standardowy z GTK+ 2.x
 Name:		gtksourceview
-Version:	0.7.0
-Release:	2
+Version:	1.0.0
+Release:	1
 License:	GPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	e9c04b40f1f44dd6ab6a95f7ad7b7258
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/1.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	0c17b39420e36fcdc9688da95b83c110
+Patch0:         %{name}-locale-names.patch
 URL:		http://www.gnome.org/
+BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gnome-vfs2-devel >= 2.3.7
-BuildRequires:	gtk+2-devel >= 2.2.2
-BuildRequires:	libgnomeprintui-devel >= 2.3.1
+BuildRequires:	gnome-common >= 2.4.0
+BuildRequires:	gnome-vfs2-devel >= 2.6.0
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	gtk-doc >= 1.0
+BuildRequires:	intltool >= 0.30
+BuildRequires:	libgnomeprintui-devel >= 2.6.0
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.5.10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -30,10 +36,10 @@ dla edytora ¼róde³.
 Summary:	Header files for gtktextview
 Summary(pl):	Pliki nag³ówkowe dla gtktextview
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2.2.2
-Requires:	libgnomeprint-devel >= 2.3.1
+Requires:	gtk+2-devel >= 2:2.4.0
+Requires:	libgnomeprint-devel >= 2.6.0
 Requires:	libxml2-devel >= 2.5.10
 
 %description devel
@@ -42,13 +48,34 @@ Header files for gtktextview.
 %description devel -l pl
 Pliki nag³ówkowe dla gtktextview.
 
+%package static
+Summary:	Static gtksourceview library
+Summary(pl):	Statyczna biblioteka gtksourceview
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static gtksourceview library.
+
+%description static -l pl
+Statyczna biblioteka gtksourceview.
+
 %prep
 %setup -q
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
 cp -f /usr/share/automake/config.sub .
+%{__libtoolize}
+%{__aclocal} -I %{_aclocaldir}/gnome2-macros
+%{__autoconf}
+%{__automake}
 %configure \
-	--with-html-dir=%{_gtkdocdir}
+	--with-html-dir=%{_gtkdocdir} \
+	--enable-static \
+	--enable-gtk-doc
 
 %{__make}
 
@@ -77,3 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/%{name}-1.0
 %{_pkgconfigdir}/*
 %{_gtkdocdir}/%{name}
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
