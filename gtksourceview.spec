@@ -1,5 +1,5 @@
-Summary:	Text widget that extends the standard gtk+ 2.x
-Summary(pl):	Widget tekstowy rozszerzaj±cy standardowy z gtk+ 2.x
+Summary:	Text widget that extends the standard GTK+ 2.x
+Summary(pl):	Widget tekstowy rozszerzaj±cy standardowy z GTK+ 2.x
 Name:		gtksourceview
 Version:	0.7.0
 Release:	1
@@ -10,27 +10,30 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.7/%{name}-%{version}.t
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-vfs2-devel >= 2.3.7
 BuildRequires:	gtk+2-devel >= 2.2.2
-BuildRequires:	libgnome-devel >= 2.3.7
 BuildRequires:	libgnomeprintui-devel >= 2.3.1
 BuildRequires:	libxml2-devel >= 2.5.10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-GtkSourceView is a text widget that extends the standard gtk+ 2.x text
+GtkSourceView is a text widget that extends the standard GTK+ 2.x text
 widget GtkTextView. It improves GtkTextView by implementing syntax
 highlighting and other features typical of a source editor.
 
 %description -l pl
 GtkSourceView to widget tekstowy rozszerzaj±cy standardowy widget
-tekstowy GtkTextView z gtk+ 2.x. Ulepsza GtkTextView poprzez
+tekstowy GtkTextView z GTK+ 2.x. Ulepsza GtkTextView poprzez
 zaimplementowanie pod¶wietlania sk³adni i innych mo¿liwo¶ci typowych
-dla edytora ¼ródê³.
+dla edytora ¼róde³.
 
 %package devel
 Summary:	Header files for gtktextview
 Summary(pl):	Pliki nag³ówkowe dla gtktextview
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	gtk-doc-common
+Requires:	gtk+2-devel >= 2.2.2
+Requires:	libgnomeprint-devel >= 2.3.1
+Requires:	libxml2-devel >= 2.5.10
 
 %description devel
 Header files for gtktextview.
