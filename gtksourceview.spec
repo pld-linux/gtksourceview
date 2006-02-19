@@ -63,6 +63,7 @@ Statyczna biblioteka gtksourceview.
 %setup -q
 
 %build
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
