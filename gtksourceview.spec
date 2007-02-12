@@ -1,5 +1,5 @@
 Summary:	Text widget that extends the standard GTK+ 2.x
-Summary(pl):	Widget tekstowy rozszerzaj±cy standardowy z GTK+ 2.x
+Summary(pl.UTF-8):   Widget tekstowy rozszerzajƒÖcy standardowy z GTK+ 2.x
 Name:		gtksourceview
 Version:	1.8.3
 Release:	1
@@ -25,27 +25,27 @@ GtkSourceView is a text widget that extends the standard GTK+ 2.x text
 widget GtkTextView. It improves GtkTextView by implementing syntax
 highlighting and other features typical of a source editor.
 
-%description -l pl
-GtkSourceView to widget tekstowy rozszerzaj±cy standardowy widget
+%description -l pl.UTF-8
+GtkSourceView to widget tekstowy rozszerzajƒÖcy standardowy widget
 tekstowy GtkTextView z GTK+ 2.x. Ulepsza GtkTextView poprzez
-zaimplementowanie pod∂wietlania sk≥adni i innych moøliwo∂ci typowych
-dla edytora ºrÛde≥.
+zaimplementowanie pod≈õwietlania sk≈Çadni i innych mo≈ºliwo≈õci typowych
+dla edytora ≈∫r√≥de≈Ç.
 
 %package apidocs
 Summary:	GtkSourceView API documentation
-Summary(pl):	Dokumentacja API GtkSourceView
+Summary(pl.UTF-8):   Dokumentacja API GtkSourceView
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
 GtkSourceView API documentation.
 
-%description apidocs -l pl
+%description apidocs -l pl.UTF-8
 Dokumentacja API GtkSourceView.
 
 %package devel
 Summary:	Header files for gtktextview
-Summary(pl):	Pliki nag≥Ûwkowe dla gtktextview
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe dla gtktextview
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.10.7
@@ -55,19 +55,19 @@ Requires:	libxml2-devel >= 1:2.6.27
 %description devel
 Header files for gtktextview.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe dla gtktextview.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe dla gtktextview.
 
 %package static
 Summary:	Static gtksourceview library
-Summary(pl):	Statyczna biblioteka gtksourceview
+Summary(pl.UTF-8):   Statyczna biblioteka gtksourceview
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static gtksourceview library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka gtksourceview.
 
 %prep
