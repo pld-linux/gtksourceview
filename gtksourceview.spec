@@ -1,5 +1,5 @@
 Summary:	Text widget that extends the standard GTK+ 2.x
-Summary(pl.UTF-8):   Widget tekstowy rozszerzający standardowy z GTK+ 2.x
+Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 2.x
 Name:		gtksourceview
 Version:	1.8.3
 Release:	1
@@ -33,7 +33,7 @@ dla edytora źródeł.
 
 %package apidocs
 Summary:	GtkSourceView API documentation
-Summary(pl.UTF-8):   Dokumentacja API GtkSourceView
+Summary(pl.UTF-8):	Dokumentacja API GtkSourceView
 Group:		Documentation
 Requires:	gtk-doc-common
 
@@ -45,7 +45,7 @@ Dokumentacja API GtkSourceView.
 
 %package devel
 Summary:	Header files for gtktextview
-Summary(pl.UTF-8):   Pliki nagłówkowe dla gtktextview
+Summary(pl.UTF-8):	Pliki nagłówkowe dla gtktextview
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.10.7
@@ -60,7 +60,7 @@ Pliki nagłówkowe dla gtktextview.
 
 %package static
 Summary:	Static gtksourceview library
-Summary(pl.UTF-8):   Statyczna biblioteka gtksourceview
+Summary(pl.UTF-8):	Statyczna biblioteka gtksourceview
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
