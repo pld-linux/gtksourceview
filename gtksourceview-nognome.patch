@@ -1,0 +1,15 @@
+--- gtksourceview-1.8.5/docs/reference/gtksourceview.types.orig	2007-03-11 16:16:05.000000000 +0100
++++ gtksourceview-1.8.5/docs/reference/gtksourceview.types	2007-05-27 00:30:18.383258761 +0200
+@@ -5,7 +5,6 @@
+ #include <gtksourceview/gtksourcetagtable.h>
+ #include <gtksourceview/gtksourcestylescheme.h>
+ #include <gtksourceview/gtksourcetag.h>
+-#include <gtksourceview/gtksourceprintjob.h>
+ 
+ gtk_source_view_get_type
+ gtk_source_buffer_get_type
+@@ -16,4 +15,3 @@
+ gtk_source_tag_get_type
+ gtk_syntax_tag_get_type
+ gtk_pattern_tag_get_type
+-gtk_source_print_job_get_type
