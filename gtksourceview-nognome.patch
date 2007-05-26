@@ -13,3 +13,13 @@
  gtk_syntax_tag_get_type
  gtk_pattern_tag_get_type
 -gtk_source_print_job_get_type
+--- gtksourceview-1.8.5/gtksourceview-1.0.pc.in.orig	2007-01-03 16:40:35.000000000 +0100
++++ gtksourceview-1.8.5/gtksourceview-1.0.pc.in	2007-05-27 01:44:09.620984327 +0200
+@@ -6,6 +6,6 @@
+ Name: @PACKAGE_NAME@
+ Description: GTK+ 2.0 Source Editing Widget
+ Version: @PACKAGE_VERSION@
+-Requires: gtk+-2.0 libxml-2.0 libgnomeprint-2.2
++Requires: gtk+-2.0 libxml-2.0
+ Libs: -L${libdir} -lgtksourceview-1.0
+ Cflags: -I${includedir}/gtksourceview-1.0
