@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	gnome	# disable gnomeprint support, don't build tests
+#
 Summary:	Text widget that extends the standard GTK+ 2.x
 Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 2.x
 Name:		gtksourceview
@@ -7,15 +11,16 @@ License:	GPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gtksourceview/1.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	de67df2944c1cccbc2d0b4a738e11050
+Patch0:		%{name}-nognome.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-vfs2-devel >= 2.17.91
+%{?with_gnome:BuildRequires:	gnome-vfs2-devel >= 2.17.91}
 BuildRequires:	gtk+2-devel >= 2:2.10.9
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	intltool >= 0.35.5
-BuildRequires:	libgnomeprintui-devel >= 2.17.92
+%{?with_gnome:BuildRequires:	libgnomeprintui-devel >= 2.17.92}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.27
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -49,7 +54,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe dla gtktextview
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.10.9
-Requires:	libgnomeprintui-devel >= 2.17.92
+%{?with_gnome:Requires:	libgnomeprint-devel >= 2.17.92}
 Requires:	libxml2-devel >= 1:2.6.27
 
 %description devel
@@ -72,6 +77,7 @@ Statyczna biblioteka gtksourceview.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__gtkdocize}
@@ -81,9 +87,10 @@ Statyczna biblioteka gtksourceview.
 %{__autoconf}
 %{__automake}
 %configure \
-	--with-html-dir=%{_gtkdocdir} \
+	%{!?with_gnome:--disable-gnomeprint} \
+	--enable-gtk-doc \
 	--enable-static \
-	--enable-gtk-doc
+	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
 %install
@@ -102,7 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}-1.0.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libgtksourceview-1.0.so.*.*.*
 %{_datadir}/%{name}-1.0
 
 %files apidocs
@@ -111,11 +118,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libgtksourceview-1.0.so
+%{_libdir}/libgtksourceview-1.0.la
 %{_includedir}/%{name}-1.0
-%{_pkgconfigdir}/*
+%{_pkgconfigdir}/gtksourceview-1.0.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libgtksourceview-1.0.a
