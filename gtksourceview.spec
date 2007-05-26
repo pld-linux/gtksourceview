@@ -77,7 +77,7 @@ Statyczna biblioteka gtksourceview.
 
 %prep
 %setup -q
-%patch0 -p1
+%{!?with_gnome:%patch0 -p1}
 
 %build
 %{__gtkdocize}
