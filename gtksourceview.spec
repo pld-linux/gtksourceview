@@ -6,7 +6,7 @@ Summary:	Text widget that extends the standard GTK+ 2.x
 Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 2.x
 Name:		gtksourceview
 Version:	1.8.5
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gtksourceview/1.8/%{name}-%{version}.tar.bz2
@@ -23,6 +23,8 @@ BuildRequires:	intltool >= 0.35.5
 %{?with_gnome:BuildRequires:	libgnomeprintui-devel >= 2.17.92}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.27
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -98,7 +100,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-
+[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
+	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name}-1.0
 
 %clean
