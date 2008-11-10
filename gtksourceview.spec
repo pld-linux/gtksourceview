@@ -6,12 +6,13 @@ Summary:	Text widget that extends the standard GTK+ 2.x
 Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 2.x
 Name:		gtksourceview
 Version:	1.8.5
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gtksourceview/1.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	de67df2944c1cccbc2d0b4a738e11050
 Patch0:		%{name}-nognome.patch
+Patch1:		%{name}-build-fix.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
@@ -80,6 +81,7 @@ Statyczna biblioteka gtksourceview.
 %prep
 %setup -q
 %{!?with_gnome:%patch0 -p1}
+%patch1 -p1
 
 %build
 %{__gtkdocize}
