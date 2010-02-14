@@ -16,6 +16,8 @@ Patch1:		%{name}-build-fix.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
+BuildRequires:	docbook-dtd412-xml
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.12.0
 %{?with_gnome:BuildRequires:	gnome-vfs2-devel >= 2.17.91}
 BuildRequires:	gtk+2-devel >= 2:2.10.9
@@ -24,6 +26,7 @@ BuildRequires:	intltool >= 0.35.5
 %{?with_gnome:BuildRequires:	libgnomeprintui-devel >= 2.17.92}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.27
+BuildRequires:	pkgconfig
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
