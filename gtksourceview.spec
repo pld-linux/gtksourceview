@@ -105,8 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name}-1.0
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libgtksourceview-1.0.la
@@ -120,6 +119,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}-1.0.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgtksourceview-1.0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgtksourceview-1.0.so.0
 %{_datadir}/%{name}-1.0
 
 %files apidocs
