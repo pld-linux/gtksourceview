@@ -17,7 +17,7 @@ URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-common >= 2.12.0
 %{?with_gnome:BuildRequires:	gnome-vfs2-devel >= 2.17.91}
 BuildRequires:	gtk+2-devel >= 2:2.10.9
