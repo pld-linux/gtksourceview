@@ -1,0 +1,11 @@
+--- gtksourceview-1.8.5/tests/test-widget.c~	2007-01-03 15:40:28.000000000 +0000
++++ gtksourceview-1.8.5/tests/test-widget.c	2015-04-06 11:11:42.287502297 +0000
+@@ -190,7 +190,7 @@
+ 					 GTK_DIALOG_DESTROY_WITH_PARENT,
+ 					 GTK_MESSAGE_ERROR,
+ 					 GTK_BUTTONS_OK,
+-					 tmp);
++					 "%s", tmp);
+ 	g_free (tmp);
+ 	
+ 	gtk_dialog_run (GTK_DIALOG (dialog));
