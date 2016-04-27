@@ -1,15 +1,15 @@
 #
 # Conditional build:
 %bcond_without	gnome	# disable gnomeprint support, don't build tests
-#
+
 Summary:	Text widget that extends the standard GTK+ 2.x
 Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 2.x
 Name:		gtksourceview
 Version:	1.8.5
-Release:	8
+Release:	9
 License:	GPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gtksourceview/1.8/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/1.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	de67df2944c1cccbc2d0b4a738e11050
 Patch0:		%{name}-nognome.patch
 Patch1:		%{name}-build-fix.patch
@@ -48,6 +48,9 @@ Summary:	GtkSourceView API documentation
 Summary(pl.UTF-8):	Dokumentacja API GtkSourceView
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 GtkSourceView API documentation.
@@ -107,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
+mv -f $RPM_BUILD_ROOT%{_localedir}/sr@{Latn,latin}
 %find_lang %{name}-1.0
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libgtksourceview-1.0.la
