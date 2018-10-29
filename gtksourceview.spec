@@ -14,7 +14,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/1.8/%{name}-%{vers
 Patch0:		%{name}-nognome.patch
 Patch1:		%{name}-build-fix.patch
 Patch2:		format-security.patch
-URL:		http://www.gnome.org/
+URL:		https://wiki.gnome.org/Projects/GtkSourceView
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
